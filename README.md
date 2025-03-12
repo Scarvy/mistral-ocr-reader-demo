@@ -7,6 +7,11 @@ Use [Mistral's OCR](https://docs.mistral.ai/capabilities/document/#are-there-any
 > [!NOTE]
 > Set your [Reader](https://readwise.io/access_token) and [Mistral](https://console.mistral.ai/api-keys) API keys before running.
 
+```.env
+MISTRAL_API_KEY = ""
+READER_API_KEY = ""
+```
+
 ```
 uv run index.py
 ```
