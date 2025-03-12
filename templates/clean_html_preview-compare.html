@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clean HTML Preview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .content-preview-container {
+      display: flex;
+      justify-content: space-around;
+      max-width: 90%;
+      margin: 2em auto;
+    }
+    .preview-box {
+      width: 45%;
+      border: 1px solid #ccc;
+      padding: 1em;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+    }
+    .preview-box h2 {
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-preview-container">
+    <div class="preview-box">
+      <h2>Original</h2>
+      {{ original_html|safe }}
+    </div>
+    <div class="preview-box">
+      <h2>Modified</h2>
+      {{ modified_html|safe }}
+    </div>
+  </div>
+</body>
+</html>
