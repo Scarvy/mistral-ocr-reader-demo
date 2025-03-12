@@ -31,9 +31,11 @@ def get_combined_markdown(ocr_response: OCRResponse) -> str:
 
     return "\n\n".join(markdowns)
 
+
 def write_to_file(filename: str, content: str) -> None:
     with open(filename, "w") as f:
         f.write(content)
+
 
 for pdf_file in Path("important").glob("*.pdf"):
     assert pdf_file.is_file(), "File not found"
@@ -66,13 +68,13 @@ for pdf_file in Path("important").glob("*.pdf"):
 
     write_to_file(f"output/{uploaded_file.id}.json", json_string)
     write_to_file(f"output/{uploaded_file.id}.md", markdown)
-    
+
     html = markdown2.markdown(markdown)
     write_to_file(f"output/{uploaded_file.id}.html", html)
 
     response = requests.post(
         url="https://readwise.io/api/v3/save/",
-        headers={"Authorization": f"Token {os.getenv('READWISE_API_KEY')}"},
+        headers={"Authorization": f"Token {os.getenv('READER_API_KEY')}"},
         json={
             "url": f"https://example.com/article/{uploaded_file.filename}",
             "title": uploaded_file.filename,
